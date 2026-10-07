@@ -4,6 +4,8 @@ using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
+using static Selenium_Reqnrool.Hooks.Broswer__SetUp;
+
 namespace Selenium_Reqnrool.StepDefinitions
 {
 
@@ -11,12 +13,12 @@ namespace Selenium_Reqnrool.StepDefinitions
     public class Broswer1
     {
 
-        private IWebDriver driver;
+        
 
         [Given("Navigate to the broswer")]
         public void GivenNavigateToTheBroswer()
         {
-            driver = new ChromeDriver();
+           
         }
 
         [When("Open The Url")]
