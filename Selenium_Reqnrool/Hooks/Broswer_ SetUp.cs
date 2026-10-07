@@ -7,24 +7,19 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Edge;
-using Selenium_Reqnrool.Support;
+
 
 namespace Selenium_Reqnrool.Hooks
 {
     [Binding]
-     class Broswer__SetUp
+    class Broswer__SetUp
     {
         public static IWebDriver driver;
-        [BeforeTestRun]
-        public static void StartReport()
-        {
-            Reportmanager.StartReport();
-        }
 
         [BeforeScenario]
-        public  void BeforeTest()
+        public void BeforeTest()
         {
-            string broswer = Environment.GetEnvironmentVariable("BROWSER") ?? "chrome";
+            string broswer = Environment.GetEnvironmentVariable("BROWSER") ?? "edge";
 
             switch (broswer.ToLower())
             {
@@ -36,21 +31,21 @@ namespace Selenium_Reqnrool.Hooks
                     driver = new FirefoxDriver();
                     break;
 
-                 case "edge":
+                case "edge":
                     driver = new EdgeDriver();
-                    break; 
+                    break;
 
                 default:
                     throw new ArgumentException($"Unsupported browser: {broswer}");
             }
-            
+
             driver.Manage().Window.Maximize();
 
         }
 
         [AfterScenario]
 
-        public  void AfterTest(ScenarioContext scenarioContext)
+        public void AfterTest(ScenarioContext scenarioContext)
         {
             if (scenarioContext.TestError != null)
             {
@@ -78,12 +73,9 @@ namespace Selenium_Reqnrool.Hooks
             }
 
 
-          driver.Quit();
+            driver.Quit();
         }
-        [AfterTestRun]
-        public static void EndReport()
-        {
-            Reportmanager.EndReport();
-        }
+        
+    
     }
 }
