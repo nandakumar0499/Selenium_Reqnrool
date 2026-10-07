@@ -1,13 +1,9 @@
-﻿
-Feature: facebook 1
+﻿Feature: facebook
 
 A short summary of the feature
 
-@tag1
-Scenario: Enter facebook user name and password
-	Given BROSWER OPEN
-	When navigate to webpage 
-	Then enter username
+Scenario: Verify Login Funcation
+    Given navigate to facebook Url
+    When Enter the username and password
+    Then Click on login button
 	
-	
-

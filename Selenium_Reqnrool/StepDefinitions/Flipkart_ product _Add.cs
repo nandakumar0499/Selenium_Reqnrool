@@ -34,14 +34,32 @@ namespace Selenium_Reqnrool.StepDefinitions
         public void ThenVerifyTheProductAddToCartFirstIteamSuccussfully()
         {
             driver.SwitchTo().Window(driver.WindowHandles[1]);
-            Thread.Sleep(3000);
-            driver.FindElement(By.XPath("//*[@id=\"slot-list-container\"]/div/div[2]/div/div/div/div[1]/div/div[2]/div/div[4]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div[2]/div[3]/div/div/div/a/div[4]")).Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
+           bool isDisplayed = driver.FindElement(By.XPath("//h1[@class=\"v1zwn21n v1zwn27 _1psv1zeb9 _1psv1ze0\"]")).Displayed;
 
-           /*string productText =driver.FindElement(By.XPath("//div[@class=\"aWGL6T\"]")).Text;
-            Console.WriteLine("Product Name: " + productText);*/
+            Console.WriteLine("Product name is displayed: " + isDisplayed);
+
+            bool iphoneImg = driver.FindElement(By.XPath("//div[@class=\"_1psv1zeb9 _1psv1ze0 _1psv1ze36 _1psv1ze5f\"]")).Displayed;
+
+            Console.WriteLine("Iphone Img is displayed: " + iphoneImg);
+
 
             Console.WriteLine("Product is added to cart succussfully");
+            driver.SwitchTo().Window(driver.WindowHandles[0]);
+            Thread.Sleep(3000);
+
+            string  Title = driver.Title;
+            Console.WriteLine("Title of the page is: " + Title);
+
+            if(Title.Contains("Iphone 14 Pro Max- Buy Products Online at Best Price in India - All Categories | Flipkart.com"))
+            {
+                Console.WriteLine("Title is verified");
+            }
+            else
+            {
+                Console.WriteLine("Title is not verified");
+            }
+
         }
 
     }

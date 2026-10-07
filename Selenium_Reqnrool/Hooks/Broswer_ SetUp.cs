@@ -19,7 +19,7 @@ namespace Selenium_Reqnrool.Hooks
         [BeforeScenario]
         public void BeforeTest()
         {
-            string broswer = Environment.GetEnvironmentVariable("BROWSER") ?? "edge";
+            string broswer = Environment.GetEnvironmentVariable("BROWSER") ?? "chrome";
 
             switch (broswer.ToLower())
             {

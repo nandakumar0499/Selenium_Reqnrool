@@ -25,7 +25,7 @@ namespace Selenium_Reqnrool.Hooks
             {
                 Headless = false
             });
-          
+
         }
         [BeforeScenario]
         public static async Task BeforeScenario()
