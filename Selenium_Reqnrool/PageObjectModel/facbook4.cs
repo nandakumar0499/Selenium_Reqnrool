@@ -8,7 +8,7 @@ namespace Selenium_Reqnrool.PageObjectModel
     public  class facbook4
     {
 
-        private IWebDriver driver;
+        public  IWebDriver driver;
 
         public facbook4(IWebDriver driver)
         {
